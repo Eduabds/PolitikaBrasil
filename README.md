@@ -22,7 +22,7 @@ Aplicativo multiplataforma em desenvolvimento, criado com Expo e React Native. E
 Clone o repositório e instale as dependências:
 
 ```bash
-git clone https://github.com/SEU_USUARIO/PolitikaBrasil.git
+git clone https://github.com/Eduabds/PolitikaBrasil.git
 cd PolitikaBrasil
 npm install
 ```
