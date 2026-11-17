@@ -1,39 +1,24 @@
 # PolitikaBrasil
 
-Aplicativo multiplataforma em desenvolvimento, criado com Expo e React Native. Este repositório contém a base inicial do app, com navegação por abas, suporte a temas claro e escuro e execução em Android, iOS e web.
+Aplicativo multiplataforma em desenvolvimento com Expo e React Native para explicar, de forma educativa e apartidária, como funcionam as instituições e a participação cidadã no Brasil.
 
-> **Status:** estrutura inicial. As telas e abas atuais ainda são placeholders do template Expo; funcionalidades específicas do PolitikaBrasil serão adicionadas nas próximas etapas.
+> **Status:** MVP funcional com quatro temas, 12 lições, 12 questões de quiz e progresso salvo localmente.
 
 ## Tecnologias
 
-- [Expo SDK 58](https://docs.expo.dev/versions/v58.0.0/)
-- React Native 0.88
-- React 19
-- Expo Router
-- TypeScript
-
-## Requisitos
-
-- Node.js e npm
-- Expo Go para executar no dispositivo físico, ou um emulador/simulador configurado
+- Expo SDK 58
+- React Native 0.88 e React 19
+- Expo Router e TypeScript
+- Expo SQLite no Android e iOS; armazenamento local do navegador na web
 
 ## Como começar
 
-Clone o repositório e instale as dependências:
-
 ```bash
-git clone https://github.com/Eduabds/PolitikaBrasil.git
-cd PolitikaBrasil
 npm install
-```
-
-Inicie o servidor de desenvolvimento:
-
-```bash
 npm start
 ```
 
-Use o QR code exibido no terminal para abrir o projeto no Expo Go. Também é possível iniciar diretamente uma plataforma:
+Use o QR code para abrir no Expo Go. Também é possível iniciar diretamente uma plataforma:
 
 ```bash
 npm run android
@@ -41,23 +26,43 @@ npm run ios
 npm run web
 ```
 
-> Para executar no iOS, é necessário um Mac com o Xcode ou um dispositivo compatível com Expo Go.
+## O que o app oferece
+
+- **Aprender:** catálogo de Três Poderes, Sistema Eleitoral, Processo Legislativo e Cidadania e Participação Popular. Cada tema reúne três lições com tempo estimado, estado de leitura e referências oficiais.
+- **Leitura:** sumário por tema, seções curtas, destaques, indicador de leitura e botão fixo para concluir. Uma lição concluída não volta a gerar XP.
+- **Quiz:** três questões por tema, seleção única, navegação para frente e para trás, confirmação ao sair, resultado e gabarito com explicações e fontes.
+- **Progresso:** nome local editável, nível cívico, XP total, progresso até o próximo nível e detalhamento por tema.
+
+As regras de pontuação são **+20 XP** pela primeira conclusão de cada lição e **+10 XP por acerto que aumente a melhor pontuação** do quiz daquele tema. Repetições sem melhoria não geram XP adicional. O app não exige conta nem backend.
 
 ## Estrutura do projeto
 
 ```text
-app/                 Rotas e telas gerenciadas pelo Expo Router
-  (tabs)/            Telas e configuração da navegação por abas
-assets/              Fontes e imagens do aplicativo
-components/          Componentes reutilizáveis e suporte a temas
-constants/           Constantes compartilhadas, como cores
-app.json             Configuração do Expo
-package.json         Dependências e comandos do projeto
+src/app/
+  (tabs)/            Catálogo, seleção de quiz e progresso
+  modules/           Sumário de cada tema
+  lessons/           Leitura de uma lição
+  quiz/              Sessão e gabarito de um tema
+components/
+  learning/          Cartões de módulo e fontes
+  progress/          Estado global e apresentação do progresso
+  quiz/              Cartões de seleção de quiz
+  ui/                Componentes compartilhados
+constants/           Conteúdo de lições, perguntas e cores
+types/               Modelos de conteúdo e progresso
+app.json             Configuração do Expo e Expo Router
 ```
+
+O progresso nativo usa `expo-sqlite/kv-store`. Na web, os mesmos dados ficam no armazenamento local do navegador. Os dados são locais a cada dispositivo ou navegador e não são sincronizados entre eles.
 
 ## Desenvolvimento
 
-As telas ficam em `app/`, seguindo a convenção do Expo Router. Componentes reutilizáveis devem ficar fora dessa pasta, como em `components/`, para evitar que sejam tratados como rotas.
+As telas ficam em `src/app/`. Componentes, dados e lógica reutilizável devem ficar fora dessa pasta para não serem tratados como rotas.
+
+```bash
+npx expo lint
+npx tsc --noEmit
+```
 
 Antes de enviar alterações, confira os arquivos modificados e não inclua credenciais, tokens ou arquivos locais com dados sensíveis.
 
