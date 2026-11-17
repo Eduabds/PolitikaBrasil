@@ -8,8 +8,7 @@ type ProgressBarProps = {
 };
 
 export function ProgressBar({ value }: ProgressBarProps) {
-  const colorScheme = useColorScheme();
-  const colors = Colors[colorScheme];
+  const colors = Colors[useColorScheme()];
   const percentage = Math.min(Math.max(value, 0), 1) * 100;
 
   return (
@@ -24,13 +23,6 @@ export function ProgressBar({ value }: ProgressBarProps) {
 }
 
 const styles = StyleSheet.create({
-  track: {
-    borderRadius: 999,
-    height: 8,
-    overflow: 'hidden',
-  },
-  fill: {
-    borderRadius: 999,
-    height: '100%',
-  },
+  track: { borderRadius: 999, height: 8, overflow: 'hidden' },
+  fill: { borderRadius: 999, height: '100%' },
 });

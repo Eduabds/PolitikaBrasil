@@ -1,74 +1,47 @@
+import { router } from 'expo-router';
+import type { Href } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
-import Colors from '@/constants/Colors';
+import { learningModules } from '@/constants/learningContent';
+import { questionsForModule } from '@/constants/quizContent';
+import { useProgress } from '@/components/progress/ProgressProvider';
 import { useColorScheme } from '@/components/useColorScheme';
-import { ModuleCard } from '@/components/learning/ModuleCard';
+import Colors from '@/constants/Colors';
+import { QuizCard } from '@/components/quiz/QuizCard';
 import { Screen } from '@/components/ui/Screen';
 
 export default function QuizScreen() {
-  const colorScheme = useColorScheme();
-  const colors = Colors[colorScheme];
+  const colors = Colors[useColorScheme()];
+  const { progress } = useProgress();
 
   return (
     <Screen>
       <View style={styles.header}>
-        <Text style={[styles.description, { color: colors.tabIconDefault }]}>
-          Responda perguntas e receba explicações para consolidar o aprendizado.
-        </Text>
+        <Text style={[styles.title, { color: colors.text }]}>Quiz por tema</Text>
+        <Text style={[styles.description, { color: colors.tabIconDefault }]}>Responda cenários, revise suas escolhas e confira as explicações no final.</Text>
       </View>
-
-      <View style={[styles.callout, { backgroundColor: colors.accentSoft, borderColor: colors.border }]}>
-        <Text style={[styles.calloutTitle, { color: colors.text }]}>Como funcionará</Text>
-        <Text style={[styles.calloutText, { color: colors.tabIconDefault }]}>
-          Você poderá escolher um tema, responder uma sessão curta e revisar cada explicação.
-        </Text>
-      </View>
-
-      <View style={styles.section}>
-        <Text style={[styles.sectionTitle, { color: colors.text }]}>Prepare-se por tema</Text>
-        <ModuleCard
-          description="Revise os poderes antes de iniciar seu primeiro desafio."
-          icon={{ android: 'school', ios: 'graduationcap.fill', web: 'school' }}
-          title="Os Três Poderes"
-        />
+      <View style={styles.list}>
+        {learningModules.map((module) => {
+          const count = questionsForModule(module.id).length;
+          return (
+            <QuizCard
+              key={module.id}
+              bestScore={progress.bestQuizScores[module.id]}
+              description={module.description}
+              onPress={() => router.push(`/quiz/${module.id}` as Href)}
+              questionCount={count}
+              title={module.title}
+            />
+          );
+        })}
       </View>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  header: {
-    gap: 8,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: '900',
-  },
-  description: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  callout: {
-    borderRadius: 16,
-    borderWidth: 1,
-    gap: 6,
-    marginTop: 24,
-    padding: 16,
-  },
-  calloutTitle: {
-    fontSize: 17,
-    fontWeight: '800',
-  },
-  calloutText: {
-    fontSize: 14,
-    lineHeight: 21,
-  },
-  section: {
-    gap: 12,
-    marginTop: 28,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: '800',
-  },
+  header: { gap: 8, marginBottom: 24 },
+  title: { fontSize: 28, fontWeight: '900' },
+  description: { fontSize: 16, lineHeight: 24 },
+  list: { gap: 12 },
 });

@@ -11,12 +11,12 @@ type ModuleCardProps = {
   description: string;
   icon: SymbolName;
   onPress?: () => void;
+  progressLabel?: string;
   title: string;
 };
 
-export function ModuleCard({ description, icon, onPress, title }: ModuleCardProps) {
-  const colorScheme = useColorScheme();
-  const colors = Colors[colorScheme];
+export function ModuleCard({ description, icon, onPress, progressLabel, title }: ModuleCardProps) {
+  const colors = Colors[useColorScheme()];
 
   return (
     <Pressable
@@ -34,38 +34,17 @@ export function ModuleCard({ description, icon, onPress, title }: ModuleCardProp
       <View style={styles.content}>
         <Text style={[styles.title, { color: colors.text }]}>{title}</Text>
         <Text style={[styles.description, { color: colors.tabIconDefault }]}>{description}</Text>
+        {progressLabel ? <Text style={[styles.progress, { color: colors.accent }]}>{progressLabel}</Text> : null}
       </View>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    alignItems: 'center',
-    borderRadius: 16,
-    borderWidth: 1,
-    flexDirection: 'row',
-    gap: 12,
-    minHeight: 96,
-    padding: 14,
-  },
-  iconContainer: {
-    alignItems: 'center',
-    borderRadius: 12,
-    height: 48,
-    justifyContent: 'center',
-    width: 48,
-  },
-  content: {
-    flex: 1,
-    gap: 4,
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: '800',
-  },
-  description: {
-    fontSize: 14,
-    lineHeight: 20,
-  },
+  card: { alignItems: 'center', borderRadius: 16, borderWidth: 1, flexDirection: 'row', gap: 12, minHeight: 96, padding: 14 },
+  iconContainer: { alignItems: 'center', borderRadius: 12, height: 48, justifyContent: 'center', width: 48 },
+  content: { flex: 1, gap: 4 },
+  title: { fontSize: 16, fontWeight: '800' },
+  description: { fontSize: 14, lineHeight: 20 },
+  progress: { fontSize: 12, fontWeight: '700', marginTop: 2 },
 });
