@@ -12,12 +12,18 @@ Aplicativo multiplataforma em desenvolvimento com Expo e React Native para expli
 - Expo SQLite no Android e iOS; armazenamento local do navegador na web
 
 ## Como começar
+Abra o terminal na sua ide e insira os seguintes comandos para clonar o repositório
+
+```bash
+git clone https://github.com/Eduabds/PolitikaBrasil.git
+cd PolitikaBrasil
+```
+Os comandos a seguir irão preparar e iniciar a aplicação 
 
 ```bash
 npm install
 npm start
 ```
-
 Use o QR code para abrir no Expo Go. Também é possível iniciar diretamente uma plataforma:
 
 ```bash
