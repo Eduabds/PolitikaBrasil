@@ -1,6 +1,7 @@
 export type LearningModuleId =
   | 'three-powers'
   | 'electoral-system'
+  | 'elected-offices'
   | 'legislative-process'
   | 'civic-participation';
 

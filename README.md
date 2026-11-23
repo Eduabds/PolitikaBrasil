@@ -2,7 +2,7 @@
 
 Aplicativo multiplataforma em desenvolvimento com Expo e React Native para explicar, de forma educativa e apartidária, como funcionam as instituições e a participação cidadã no Brasil.
 
-> **Status:** MVP funcional com quatro temas, 12 lições, 12 questões de quiz e progresso salvo localmente.
+> **Status:** MVP funcional com cinco temas, 17 lições, 15 questões de quiz e progresso salvo localmente.
 
 ## Tecnologias
 
@@ -12,18 +12,21 @@ Aplicativo multiplataforma em desenvolvimento com Expo e React Native para expli
 - Expo SQLite no Android e iOS; armazenamento local do navegador na web
 
 ## Como começar
+
 Abra o terminal na sua ide e insira os seguintes comandos para clonar o repositório
 
 ```bash
 git clone https://github.com/Eduabds/PolitikaBrasil.git
 cd PolitikaBrasil
 ```
-Os comandos a seguir irão preparar e iniciar a aplicação 
+
+Os comandos a seguir irão preparar e iniciar a aplicação
 
 ```bash
 npm install
 npm start
 ```
+
 Use o QR code para abrir no Expo Go. Também é possível iniciar diretamente uma plataforma:
 
 ```bash
@@ -34,9 +37,10 @@ npm run web
 
 ## O que o app oferece
 
-- **Aprender:** catálogo de Três Poderes, Sistema Eleitoral, Processo Legislativo e Cidadania e Participação Popular. Cada tema reúne três lições com tempo estimado, estado de leitura e referências oficiais.
+- **Boas-vindas:** no primeiro uso, o app solicita o nome da pessoa e salva essa preferência junto ao progresso local.
+- **Aprender:** catálogo de Três Poderes, Sistema Eleitoral, Funções dos Cargos Eletivos, Processo Legislativo e Cidadania e Participação Popular. O conteúdo atual possui 17 lições com tempo estimado, estado de leitura e referências oficiais.
 - **Leitura:** sumário por tema, seções curtas, destaques, indicador de leitura e botão fixo para concluir. Uma lição concluída não volta a gerar XP.
-- **Quiz:** três questões por tema, seleção única, navegação para frente e para trás, confirmação ao sair, resultado e gabarito com explicações e fontes.
+- **Quiz:** três questões por tema, totalizando 15 questões, com seleção única, navegação para frente e para trás, confirmação ao sair, resultado e gabarito com explicações e fontes.
 - **Progresso:** nome local editável, nível cívico, XP total, progresso até o próximo nível e detalhamento por tema.
 
 As regras de pontuação são **+20 XP** pela primeira conclusão de cada lição e **+10 XP por acerto que aumente a melhor pontuação** do quiz daquele tema. Repetições sem melhoria não geram XP adicional. O app não exige conta nem backend.
@@ -45,7 +49,9 @@ As regras de pontuação são **+20 XP** pela primeira conclusão de cada liçã
 
 ```text
 src/app/
-  (tabs)/            Catálogo, seleção de quiz e progresso
+  index.tsx          Tela de boas-vindas e onboarding
+  (tabs)/            Aprender, seleção de quiz e progresso
+    learn.tsx        Catálogo dos módulos
   modules/           Sumário de cada tema
   lessons/           Leitura de uma lição
   quiz/              Sessão e gabarito de um tema

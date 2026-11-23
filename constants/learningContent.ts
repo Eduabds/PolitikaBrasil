@@ -99,6 +99,147 @@ export const learningModules: LearningModule[] = [
     ],
   },
   {
+    id: 'elected-offices',
+    title: 'Funções dos Cargos Eletivos',
+    description: 'Conheça as responsabilidades do Presidente, governadores, senadores e deputados.',
+    lessons: [
+      {
+        id: 'elected-president',
+        title: 'Presidente da República',
+        summary: 'Chefia do Executivo federal e participação no processo legislativo e administrativo.',
+        estimatedMinutes: 4,
+        sections: [
+          {
+            id: 'president-chief',
+            heading: 'Chefe de Estado e de Governo',
+            body: 'O Presidente da República representa o Brasil nas relações internacionais e dirige a administração federal. É auxiliado pelos Ministros de Estado, que dirigem áreas da estrutura administrativa indicadas pela Constituição e pela legislação.',
+            highlight: { title: 'Mandato', body: 'O mandato é de quatro anos, com possibilidade de uma reeleição consecutiva.' },
+            references: [source('president-art76', 'Arts. 76 e 77, § 1º')],
+          },
+          {
+            id: 'president-powers',
+            heading: 'Governar, vetar e enviar propostas',
+            body: 'Cabe ao Presidente nomear e exonerar Ministros, elaborar e enviar ao Congresso o Plano Plurianual, a Lei de Diretrizes Orçamentárias e o orçamento anual, sancionar ou vetar projetos de lei e editar Medidas Provisórias em casos constitucionais de relevância e urgência.',
+            references: [source('president-art84', 'Arts. 84 e 62')],
+          },
+          {
+            id: 'president-foreign-defense',
+            heading: 'Relações exteriores e defesa',
+            body: 'O Presidente mantém relações com Estados estrangeiros, celebra tratados sujeitos aos procedimentos constitucionais de aprovação e exerce o comando supremo das Forças Armadas.',
+            references: [source('president-art84-defense', 'Art. 84, VII a IX')],
+          },
+        ],
+      },
+      {
+        id: 'elected-governor',
+        title: 'Governador de Estado e do Distrito Federal',
+        summary: 'Responsabilidades sobre serviços estaduais e articulação entre entes federativos.',
+        estimatedMinutes: 4,
+        sections: [
+          {
+            id: 'governor-security',
+            heading: 'Segurança e serviços públicos',
+            body: 'O Governador dirige o Executivo estadual ou distrital e atua com secretarias estaduais ou distritais. Comanda a Polícia Militar, a Polícia Civil, a Polícia Penal e o Corpo de Bombeiros Militar, além de gerir serviços estaduais de saúde e educação.',
+            references: [source('governor-art25', 'Arts. 25, § 7º, e 144')],
+          },
+          {
+            id: 'governor-infrastructure',
+            heading: 'Infraestrutura e desenvolvimento',
+            body: 'Entre as funções administrativas típicas estão administrar rodovias estaduais, sistemas de saneamento, transporte intermunicipal e políticas de desenvolvimento regional. Estados e Distrito Federal organizam essas ações dentro das competências constitucionais e legais.',
+            references: [source('governor-art25-infrastructure', 'Arts. 25 e 32')],
+          },
+          {
+            id: 'governor-legislation',
+            heading: 'Orçamento e relação com a Assembleia',
+            body: 'O Governador encaminha o orçamento estadual, propõe projetos de lei e sanciona ou veta projetos aprovados pela Assembleia Legislativa ou pela Câmara Legislativa do Distrito Federal.',
+            highlight: { title: 'Fiscalização', body: 'Projetos e contas estaduais são examinados pelos órgãos legislativos e pelos Tribunais de Contas, conforme a Constituição e as leis.' },
+            references: [source('governor-art27', 'Arts. 27, 28 e 32')],
+          },
+        ],
+      },
+      {
+        id: 'elected-senator',
+        title: 'Senador da República',
+        summary: 'Representação igualitária dos entes federativos e funções exclusivas do Senado.',
+        estimatedMinutes: 4,
+        sections: [
+          {
+            id: 'senator-representation',
+            heading: 'Representação dos Estados e do DF',
+            body: 'Cada Estado e o Distrito Federal elegem três Senadores. Com mandatos de oito anos e renovação alternada de um terço e dois terços a cada quatro anos, o Senado representa as unidades da federação independentemente do tamanho de sua população.',
+            references: [source('senator-art46', 'Art. 46')],
+          },
+          {
+            id: 'senator-legislation',
+            heading: 'Elaboração e revisão de leis',
+            body: 'Senadores podem propor e discutir projetos de lei e Propostas de Emenda à Constituição. Projetos aprovados pela Câmara dos Deputados passam pela revisão do Senado conforme o processo legislativo aplicável.',
+            references: [source('senator-art44', 'Arts. 44 a 47')],
+          },
+          {
+            id: 'senator-authorities',
+            heading: 'Autoridades, finanças e julgamento',
+            body: 'O Senado aprova ou rejeita indicações presidenciais para cargos definidos pela Constituição, autoriza operações financeiras externas e limites de dívida e participa do julgamento de autoridades por crimes de responsabilidade nos casos previstos.',
+            references: [source('senator-art52', 'Art. 52')],
+          },
+        ],
+      },
+      {
+        id: 'elected-federal-deputy',
+        title: 'Deputado Federal',
+        summary: 'Representação do povo na Câmara e fiscalização da União.',
+        estimatedMinutes: 4,
+        sections: [
+          {
+            id: 'federal-deputy-representation',
+            heading: 'Representação proporcional',
+            body: 'Os Deputados Federais representam o povo e são escolhidos pelo sistema proporcional. O número de cadeiras varia conforme a população de cada unidade da federação, entre limites constitucionais, totalizando 513 membros.',
+            references: [source('federal-deputy-art45', 'Art. 45')],
+          },
+          {
+            id: 'federal-deputy-law',
+            heading: 'Leis, emendas e fiscalização',
+            body: 'Os deputados podem propor, debater e votar leis ordinárias, leis complementares e emendas constitucionais. Cabe à Câmara acompanhar o orçamento, convocar autoridades em situações previstas, fiscalizar o Executivo e requerer informações.',
+            references: [source('federal-deputy-art51', 'Arts. 51 e 58')],
+          },
+          {
+            id: 'federal-deputy-budget',
+            heading: 'Emendas e controle do Executivo',
+            body: 'Deputados podem indicar emendas ao orçamento federal para obras e políticas nos estados e municípios. A Câmara também exerce atribuições específicas sobre processos contra o Presidente, o Vice-Presidente e Ministros nos casos constitucionais.',
+            highlight: { title: 'Limites', body: 'A autorização e o julgamento desses processos seguem procedimentos constitucionais próprios e envolvem mais de uma instituição.' },
+            references: [source('federal-deputy-art51-vote', 'Arts. 51 e 86')],
+          },
+        ],
+      },
+      {
+        id: 'elected-state-deputy',
+        title: 'Deputado Estadual e Deputado Distrital',
+        summary: 'Legislação, orçamento e fiscalização no âmbito estadual e do Distrito Federal.',
+        estimatedMinutes: 4,
+        sections: [
+          {
+            id: 'state-deputy-legislation',
+            heading: 'Leis estaduais e distritais',
+            body: 'Os Deputados Estaduais integram as Assembleias Legislativas. Elaboram, discutem e votam normas estaduais sobre matérias previstas na Constituição Federal e na Constituição Estadual. No Distrito Federal, são chamados Deputados Distritais e atuam na Câmara Legislativa.',
+            references: [source('state-deputy-art27', 'Arts. 27 e 32')],
+          },
+          {
+            id: 'state-deputy-budget',
+            heading: 'Orçamento e fiscalização',
+            body: 'A Assembleia ou a Câmara Legislativa analisa e aprova o Plano Plurianual, a Lei de Diretrizes Orçamentárias e o orçamento anual enviados pelo Executivo estadual ou distrital. Os parlamentares fiscalizam atos do Governador e podem examinar contas com apoio técnico dos Tribunais de Contas.',
+            references: [source('state-deputy-fiscalization', 'Arts. 27, § 2º, e 70 a 75')],
+          },
+          {
+            id: 'state-deputy-representation',
+            heading: 'Representação regional',
+            body: 'A atuação estadual inclui receber demandas da população e dos municípios, propor melhorias e participar de audiências públicas e comissões de investigação previstas pela legislação.',
+            highlight: { title: 'Competência dividida', body: 'As regras internas do estado e do DF devem respeitar os limites da Constituição Federal e não transferem ao Legislativo estadual competências privativas da União.' },
+            references: [source('state-deputy-art27-representation', 'Arts. 27 e 32')],
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: 'legislative-process',
     title: 'O Processo Legislativo',
     description: 'Acompanhe como propostas são debatidas, votadas e podem virar lei.',

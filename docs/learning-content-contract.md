@@ -4,7 +4,7 @@ Este contrato define como estruturar o conteúdo antes de implementar as telas. 
 
 ## Modelo de dados
 
-- **LearningModule**: um dos quatro pilares, com ID estável, título, descrição e lista ordenada de lições.
+- **LearningModule**: uma trilha temática, com ID estável, título, descrição e lista ordenada de lições.
 - **LearningLesson**: uma unidade de estudo com ID estável, título, resumo e seções ordenadas.
 - **LessonSection**: conteúdo em texto simples, título de seção e referências que sustentam aquela seção.
 - **SourceReference**: título da fonte, órgão/publicador, URL, localizador (artigo, seção ou página, quando aplicável) e data da última verificação (`YYYY-MM-DD`).
@@ -16,6 +16,7 @@ IDs de módulos definidos:
 |---|---|
 | `three-powers` | Os Três Poderes da República |
 | `electoral-system` | O Sistema Eleitoral Brasileiro |
+| `elected-offices` | Funções dos Cargos Eletivos |
 | `legislative-process` | O Processo Legislativo |
 | `civic-participation` | Cidadania e Participação Popular |
 

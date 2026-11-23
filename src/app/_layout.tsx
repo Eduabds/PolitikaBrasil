@@ -12,6 +12,7 @@ export default function RootLayout() {
     <ProgressProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack screenOptions={{ contentStyle: { backgroundColor: colorScheme === 'dark' ? '#06172E' : '#F5F9FD' } }}>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="modules/[moduleId]" options={{ title: 'Tema', headerBackTitle: 'Aprender' }} />
           <Stack.Screen name="lessons/[lessonId]" options={{ title: 'Lição', headerBackTitle: 'Tema' }} />

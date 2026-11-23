@@ -13,6 +13,7 @@ import { Screen } from '@/components/ui/Screen';
 const icons = {
   'three-powers': { android: 'account_balance', ios: 'building.columns.fill', web: 'account_balance' },
   'electoral-system': { android: 'how_to_vote', ios: 'checkmark.seal.fill', web: 'how_to_vote' },
+  'elected-offices': { android: 'badge', ios: 'person.badge.key.fill', web: 'badge' },
   'legislative-process': { android: 'description', ios: 'doc.text.fill', web: 'description' },
   'civic-participation': { android: 'groups', ios: 'person.3.fill', web: 'groups' },
 } as const;
@@ -30,7 +31,8 @@ export default function LearnScreen() {
         <Text style={[styles.brand, { color: colors.accent }]}>POLITIKA BRASIL</Text>
         <Text style={[styles.title, { color: colors.text }]}>Entenda como o Brasil funciona.</Text>
         <Text style={[styles.description, { color: colors.tabIconDefault }]}>
-          Conteúdo educativo, técnico e apartidário para fortalecer sua cidadania.
+          Conteúdo educativo, técnico e apartidário para fortalecer sua cidadania. 
+          Não fazemos qualquer tipo de apologia, mas apenas compartilhamos conteúdo informativo.
         </Text>
       </View>
 

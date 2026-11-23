@@ -12,6 +12,7 @@ type ProgressContextValue = {
   completeLesson: (lessonId: string) => void;
   recordQuizResult: (moduleId: LearningModuleId, score: number) => void;
   setDisplayName: (name: string) => void;
+  completeOnboarding: (name: string) => void;
 };
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
@@ -55,8 +56,16 @@ export function ProgressProvider({ children }: PropsWithChildren) {
     update((current) => ({ ...current, displayName: name.trim() || 'Aprendiz' }));
   }, [update]);
 
-  const value = useMemo(() => ({ progress, ready, completeLesson, recordQuizResult, setDisplayName }), [
-    progress, ready, completeLesson, recordQuizResult, setDisplayName,
+  const completeOnboarding = useCallback((name: string) => {
+    update((current) => ({
+      ...current,
+      displayName: name.trim(),
+      hasCompletedOnboarding: true,
+    }));
+  }, [update]);
+
+  const value = useMemo(() => ({ progress, ready, completeLesson, recordQuizResult, setDisplayName, completeOnboarding }), [
+    progress, ready, completeLesson, recordQuizResult, setDisplayName, completeOnboarding,
   ]);
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
